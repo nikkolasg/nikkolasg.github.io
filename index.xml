@@ -6,11 +6,80 @@
     <description>Recent content on A blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Dec 2015 22:30:23 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 01 Mar 2016 13:58:00 +0100</lastBuildDate>
     <atom:link href="https://nikkolasg.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>About</title>
+      <title>Install Archlinux on Remote server</title>
+      <link>https://nikkolasg.github.io/install/</link>
+      <pubDate>Tue, 01 Mar 2016 13:58:00 +0100</pubDate>
+      
+      <guid>https://nikkolasg.github.io/install/</guid>
+      <description>
+
+&lt;p&gt;After meeting with a bunch of hardcore systems geeks, I decided to put my effort
+back into a secure &amp;amp; custom server that I will &lt;em&gt;actually&lt;/em&gt; use ;)
+ Here&amp;rsquo;s my steps for ArchLinux:&lt;/p&gt;
+
+&lt;h1 id=&#34;installing-archlinux-on-remote-server:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Installing ArchLinux on remote server&lt;/h1&gt;
+
+&lt;h2 id=&#34;drives:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Drives&lt;/h2&gt;
+
+&lt;p&gt;First you need to setup your drives correctly. I use fdisk and you can find
+any decent tutorial on it easily.
+For encrypting one of the partitions, I follow the archlinux guide
+(&lt;a href=&#34;https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_a_non-root_file_system&#34;&gt;https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_a_non-root_file_system&lt;/a&gt;).
+I did not try to encrypt the whole filesystem because it seemed a bit overkill
+for my needs. I simply have /dev/sda3 encrypted where all my datas are.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cryptsetup -y -v luksFormat /dev/sda3
+cryptsetup open /dev/sda3 cryptroot
+mkfs -t ext4 /dev/mapper/cryptroo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;system:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;System&lt;/h2&gt;
+
+&lt;p&gt;For installing on the drives, they need to be unmounted so you need to boot on
+&amp;ldquo;rescue&amp;rdquo; image that your hosting provider is surely providing you. Mine was
+offering a Debian image.&lt;/p&gt;
+
+&lt;p&gt;For the rest of the steps, simply follow the guide on ArchLinux
+(&lt;a href=&#34;https://wiki.archlinux.org/index.php/Install_from_existing_Linux&#34;&gt;https://wiki.archlinux.org/index.php/Install_from_existing_Linux&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The following notes are simply some stuff that kept me crazy during a lot of
+hours.&lt;/p&gt;
+
+&lt;h2 id=&#34;notes:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install &lt;code&gt;haveged&lt;/code&gt; before running &lt;code&gt;pacman-key --init&lt;/code&gt;, it&amp;rsquo;ll be WAY much
+faster.&lt;/li&gt;
+&lt;li&gt;DON&amp;rsquo;T forget to copy /etc/resolv.conf from the rescue distribution to the
+arhclinux one, or use your own (openDNS forexample).&lt;/li&gt;
+&lt;li&gt;Change the udev rules so you have &lt;code&gt;eth0&lt;/code&gt; instead of .. whatever:
+&lt;code&gt;
+[root@***** ~]# cat /etc/udev/rules.d/10-network.rules
+SUBSYSTEM==&amp;quot;net&amp;quot;, ACTION==&amp;quot;add&amp;quot;, ATTR{address}==&amp;quot;**:**:**:**:**:**&amp;quot;,NAME=&amp;quot;eth0&amp;quot;}
+&lt;/code&gt;
+Then I use netctl (for lxc ease-of-use containers network):
+&lt;code&gt;
+[root@**** ~]# cat /etc/netctl/ethernet-static
+Description=&#39;Server ethernet connection&#39;
+Interface=eth0
+Connection=ethernet
+IP=static
+Address=(&#39;****/24&#39;)
+Gateway=&#39;****&#39;
+DNS=(&#39;****&#39;)
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t forget to &lt;code&gt;netctl enable ethernet-static&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t forget to &lt;code&gt;systemctl enable sshd&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
       <link>https://nikkolasg.github.io/about/</link>
       <pubDate>Wed, 09 Dec 2015 22:30:23 +0100</pubDate>
       
