@@ -74,6 +74,16 @@ DNS=(&#39;****&#39;)
 &lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Don&amp;rsquo;t forget to &lt;code&gt;netctl enable ethernet-static&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Don&amp;rsquo;t forget to &lt;code&gt;systemctl enable sshd&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;For non official packages, install yaourt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@****] cat /etc/pacman.conf
+# ####
+# ...
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
