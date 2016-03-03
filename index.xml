@@ -6,8 +6,80 @@
     <description>Recent content on A blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Mar 2016 13:58:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 03 Mar 2016 14:00:00 +0100</lastBuildDate>
     <atom:link href="https://nikkolasg.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Install Pass on different machines with gpg</title>
+      <link>https://nikkolasg.github.io/pass/</link>
+      <pubDate>Thu, 03 Mar 2016 14:00:00 +0100</pubDate>
+      
+      <guid>https://nikkolasg.github.io/pass/</guid>
+      <description>
+
+&lt;h1 id=&#34;using-pass-gpg-on-different-machines:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Using Pass + gpg on different machines&lt;/h1&gt;
+
+&lt;p&gt;Piouf, as my first introduction to gpg, that was more complicated than expected.
+Pass is a password manager that uses gpg to encrypt your password and can be
+intergrated with Git. So as long as you have the same gpg key on your devices,
+you can have the passwords in clear text AND being able to push those encrypted
+password on any git repo. That&amp;rsquo;s cool !&lt;/p&gt;
+
+&lt;h3 id=&#34;create-key:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Create key&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;gpg --gen-key&lt;/code&gt; (it can depends on your distro)
+Choose (1) Rsa &amp;amp; Rsa with 4096 bits (at least)&lt;/p&gt;
+
+&lt;h3 id=&#34;export-key-to-remote-server:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Export key to remote server&lt;/h3&gt;
+
+&lt;p&gt;Notes from &lt;a href=&#34;https://www.debuntu.org/how-to-importexport-gpg-key-pair/&#34;&gt;https://www.debuntu.org/how-to-importexport-gpg-key-pair/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Lookup the id of your key: &lt;code&gt;gpg --list-keys&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Export public key: &lt;code&gt;gpg --output mygpgkey_pub.gpg --armor --export &amp;lt;key-id&amp;gt;&lt;/code&gt; where key-id is the
+last part when you list the key &lt;code&gt;*****/&amp;lt;key-id&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Export secret key : &lt;code&gt;gpg --output mygpgkey_sec.gpg --armor --export-secret-key ******&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Copy keys to remote server: `scp mygpgkey_pub.gpg mygpgkey_sec.gpg user@remotehost:~/&lt;/li&gt;
+&lt;li&gt;Connect to remote: &lt;code&gt;ssh user@remotehost&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Import the public key: &lt;code&gt;gpg --import ~/mygpgkey_pub.gpg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Import the secret key: &lt;code&gt;gpg --allow-secret-key-import --import
+~/mygpgkey_sec.gpg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;troubles:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Troubles&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve had trouble when importing the key because of pinentry. In Archlinux,
+pinentry points to &lt;code&gt;/usr/bin/pintentry-gtk&lt;/code&gt; (why &amp;hellip;?). You have to delete the
+symlink &lt;code&gt;/usr/bin/pinentry&lt;/code&gt; and to point it to whatever (ncurse, or tty if you
+work on a remote server)&lt;/p&gt;
+
+&lt;h2 id=&#34;pass-manager:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Pass manager&lt;/h2&gt;
+
+&lt;p&gt;At this point you can use the Pass manager with the key you created:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pass init &amp;lt;mykey-id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then register one password to test if it works&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pass insert server/test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If it &lt;em&gt;fails&lt;/em&gt; with &lt;code&gt;There is no assurance this key belongs to the named user&lt;/code&gt;,
+that mean you have to put a higher level of trust in the key you just imported.
+To do that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gpg --edit-key &amp;lt;mykey-id&amp;gt;
+trust
+5 (maximum level since it is basically my key)
+quit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you can try again to register the password and it should works !&lt;/p&gt;
+
+&lt;p&gt;Happy password managing &amp;gt;&amp;lt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Install Archlinux on Remote server</title>
@@ -97,78 +169,6 @@ Server = http://repo.archlinux.fr/$arch
       <description>&lt;p&gt;&lt;strong&gt;Since&lt;/strong&gt; I&amp;rsquo;ve read so much from other blogs, I thought I should share a bit more,
 get out of my confort zone and share some thougts / experiences that may be
 useful to others. So here I am, nicolas gailly, a computer scientist guy that likes programming &amp;amp; security.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://nikkolasg.github.io/pass/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikkolasg.github.io/pass/</guid>
-      <description>
-
-&lt;h1 id=&#34;using-pass-gpg-on-different-machines:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Using Pass + gpg on different machines&lt;/h1&gt;
-
-&lt;p&gt;Piouf, as my first introduction to gpg, that was more complicated than expected.
-Pass is a password manager that uses gpg to encrypt your password and can be
-intergrated with Git. So as long as you have the same gpg key on your devices,
-you can have the passwords in clear text AND being able to push those encrypted
-password on any git repo. That&amp;rsquo;s cool !&lt;/p&gt;
-
-&lt;h3 id=&#34;create-key:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Create key&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;gpg --gen-key&lt;/code&gt; (it can depends on your distro)
-Choose (1) Rsa &amp;amp; Rsa with 4096 bits (at least)&lt;/p&gt;
-
-&lt;h3 id=&#34;export-key-to-remote-server:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Export key to remote server&lt;/h3&gt;
-
-&lt;p&gt;Notes from &lt;a href=&#34;https://www.debuntu.org/how-to-importexport-gpg-key-pair/&#34;&gt;https://www.debuntu.org/how-to-importexport-gpg-key-pair/&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Lookup the id of your key: &lt;code&gt;gpg --list-keys&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Export public key: &lt;code&gt;gpg --output mygpgkey_pub.gpg --armor --export &amp;lt;key-id&amp;gt;&lt;/code&gt; where key-id is the
-last part when you list the key &lt;code&gt;*****/&amp;lt;key-id&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Export secret key : &lt;code&gt;gpg --output mygpgkey_sec.gpg --armor --export-secret-key ******&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Copy keys to remote server: `scp mygpgkey_pub.gpg mygpgkey_sec.gpg user@remotehost:~/&lt;/li&gt;
-&lt;li&gt;Connect to remote: &lt;code&gt;ssh user@remotehost&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Import the public key: &lt;code&gt;gpg --import ~/mygpgkey_pub.gpg&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Import the secret key: &lt;code&gt;gpg --allow-secret-key-import --import
-~/mygpgkey_sec.gpg&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;troubles:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Troubles&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;ve had trouble when importing the key because of pinentry. In Archlinux,
-pinentry points to &lt;code&gt;/usr/bin/pintentry-gtk&lt;/code&gt; (why &amp;hellip;?). You have to delete the
-symlink &lt;code&gt;/usr/bin/pinentry&lt;/code&gt; and to point it to whatever (ncurse, or tty if you
-work on a remote server)&lt;/p&gt;
-
-&lt;h2 id=&#34;pass-manager:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Pass manager&lt;/h2&gt;
-
-&lt;p&gt;At this point you can use the Pass manager with the key you created:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pass init &amp;lt;mykey-id&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then register one password to test if it works&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pass insert server/test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If it &lt;em&gt;fails&lt;/em&gt; with &lt;code&gt;There is no assurance this key belongs to the named user&lt;/code&gt;,
-that mean you have to put a higher level of trust in the key you just imported.
-To do that:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gpg --edit-key &amp;lt;mykey-id&amp;gt;
-trust
-5 (maximum level since it is basically my key)
-quit
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then you can try again to register the password and it should works !&lt;/p&gt;
-
-&lt;p&gt;Happy password managing &amp;gt;&amp;lt;&lt;/p&gt;
 </description>
     </item>
     
