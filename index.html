@@ -187,8 +187,8 @@ arhclinux one, or use your own (openDNS forexample).</li>
 <code>
 [root@***** ~]# cat /etc/udev/rules.d/10-network.rules
 SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, ATTR{address}==&quot;**:**:**:**:**:**&quot;,NAME=&quot;eth0&quot;}
-</code>
-Then I use netctl (for lxc ease-of-use containers network):
+</code></li>
+<li>use netctl (for lxc ease-of-use containers network):
 <code>
 [root@**** ~]# cat /etc/netctl/ethernet-static
 Description='Server ethernet connection'
