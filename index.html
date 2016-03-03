@@ -101,6 +101,7 @@ work on a remote server)</p>
 <p>At this point you can use the Pass manager with the key you created:</p>
 
 <pre><code>pass init &lt;mykey-id&gt;
+pass git init
 </code></pre>
 
 <p>Then register one password to test if it works</p>
@@ -119,6 +120,14 @@ quit
 </code></pre>
 
 <p>Then you can try again to register the password and it should works !</p>
+
+<h2 id="different-machines:cf74d1242aa2a62d59c5375aba5f1401">Different machines</h2>
+
+<p>Now on the remote server you have a git repo in <code>$HOME/.password_store</code>. If you
+want your passwords on another machines, make sure you import the key as before.
+Then you simply can do:
+<code>cd &amp;&amp; git clone user@myserver.com:~/.password-store</code>
+Then your local <em>pass</em> will simply look at this file.</p>
 
 <p>Happy password managing &gt;&lt;</p>
 
