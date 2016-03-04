@@ -177,7 +177,100 @@ Server = http://repo.archlinux.fr/$arch
       <guid>https://nikkolasg.github.io/about/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Since&lt;/strong&gt; I&amp;rsquo;ve read so much from other blogs, I thought I should share a bit more,
 get out of my confort zone and share some thougts / experiences that may be
-useful to others. So here I am, nicolas gailly, a computer scientist guy that likes programming &amp;amp; security.&lt;/p&gt;
+useful to others.It&amp;rsquo;s actually also a nice way to remember things for yourself.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Some thoughts...</title>
+      <link>https://nikkolasg.github.io/tor_iff_2016/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikkolasg.github.io/tor_iff_2016/</guid>
+      <description>
+
+&lt;h2 id=&#34;about-passionate-people:fac509855ae0c413020a910656184bb3&#34;&gt;About passionate people &amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve attented the TorDev meeting 2016 in Valencia &amp;amp; some parts of the IFF also
+taking place right after it in the same city. That was my first dive into this
+world of open source communitie / hacktivists / hardcore systems hackers etc.
+Man, it was worth it ! To be honest that was a lot to process and I felt a bit
+over pressured since I was not very involved at that time in those communities
+and I&amp;rsquo;ve put been in their sessions and group meetings just as if I were an
+equally important contributor so.. that felt a bit wrong at first sight.
+Of course, I&amp;rsquo;ve told my little me in my head to go out there and talk to people
+about what you think, this project, the way this is done and so on, but this
+feeling of &lt;em&gt;being small&lt;/em&gt; was very present throughout the first days, mostly
+during the TorDev meeting.
+Finally I got to talk to one or two people about the projects I work on and how
+this might be / or not / a good idea to try that on Tor, and then I&amp;rsquo;ve had kind
+of a goal, so I guess that helped me relieve a bit from that pressure.&lt;/p&gt;
+
+&lt;p&gt;What I find crazy about all this is the gathering of people coming from all
+differents kinds of background, places and have all different kind of skills.
+They gather together and make something great out of it. They can because for
+most of them, they&amp;rsquo;re one of the most highly talented, kind &amp;amp; patient people
+I&amp;rsquo;ve ever met, &lt;em&gt;all at the same time&lt;/em&gt;. This kind of atmosphere you have here is
+very different from what you can experience elsewhere (for me at least). It&amp;rsquo;s
+like you feel you almost already know the people in the place, even if you don&amp;rsquo;t,
+so you feel relaxed and you laugh with them and such, and in the same time, you
+talk about hard problems with them like you would do small talk with your friends.&lt;/p&gt;
+
+&lt;p&gt;One of the big thing that has been poking my mind a lot is that most of the people
+I&amp;rsquo;ve met have their own &lt;em&gt;identity&lt;/em&gt;.
+They dress some specific way, they think a very peculiar way, they behave
+in a peculiar way, they are specialized and sometimes not. They do what they
+&lt;em&gt;like&lt;/em&gt; and they like Tor or any other privacy-security systems and they do
+something useful &lt;em&gt;because&lt;/em&gt; they actually like it. What&amp;rsquo;s the best motivation if
+not passion ? And because of that, they actually &lt;em&gt;get out&lt;/em&gt; of the typical good
+citizen picture that we&amp;rsquo;ve been taught from childhood. From my point of view, they
+seemed to &lt;em&gt;get in&lt;/em&gt; their own path actually.&lt;/p&gt;
+
+&lt;p&gt;All of this had led to a series of questions about what I want to do in my life.
+Not what would be the &lt;em&gt;best&lt;/em&gt; to do, but what I &lt;em&gt;really&lt;/em&gt; want to do ?
+How do I construct this &lt;em&gt;inner identity&lt;/em&gt; ? Would it be by following your inner
+choice (i.e. &lt;em&gt;instinct&lt;/em&gt;) in your life instead of what seems to be the best, or
+the more reasonable ?
+I know a lot of people that actually fit very well in their environment they&amp;rsquo;ve
+been given and don&amp;rsquo;t try to change it, but rather &lt;em&gt;simply&lt;/em&gt; try to enjoy it. For my part
+I find it difficult to &lt;em&gt;fit in&lt;/em&gt; the system I&amp;rsquo;m in now. After some more thoughts, the
+reason I come up with is that I haven&amp;rsquo;t really followed my &lt;em&gt;instincts&lt;/em&gt;
+throughout my life. I&amp;rsquo;ve basically tried to do things I like but in a way that
+fits the system &lt;em&gt;regardless&lt;/em&gt; on how I would have done it otherwise. These
+questions seems very &lt;em&gt;high-level&lt;/em&gt; but actually can be applied for very practical
+stuff:
+* Should I go to work the way I want (large &lt;em&gt;hippie&lt;/em&gt; pan or colorfull hairs or
+  no hairs or with flipflop or whatever) regardless of every
+  other people that does &lt;em&gt;not&lt;/em&gt; behave in any other way that the regular pants +
+shirt ? There&amp;rsquo;s not even an actual rule about it, but the people have the
+tendency to judge you from the way you look (in the place I&amp;rsquo;m in). If you&amp;rsquo;re not
+an actual genius, you don&amp;rsquo;t have that excuse to &lt;em&gt;not&lt;/em&gt; behave like this. I don&amp;rsquo;t
+know why geniuses get to behave the way they want but not us? It seems childish
+but I &lt;em&gt;do&lt;/em&gt; feel this way in the place I work &amp;amp; live.
+* Should I fuck off of the IT guys and install my own Archlinux on the Mac
+  they&amp;rsquo;ve been given to me ? I actually tried this for a few month now and I
+miss my Linux machine with my sweet tiling w.m&amp;hellip; (I&amp;rsquo;ve already decided that
+I&amp;rsquo;d do it anyway^^)
+* How should I choose the project I want to work on, on my free time. Should
+  they be useful for the community even if I find them boring at first sight ?
+Should I choose them according to the most passion I have about them ? That&amp;rsquo;s a
+tough one for me now because I think both are essentials but my coding-free-time
+is very limited. Get deep into other&amp;rsquo;s people code and fixing bugs OR implement
+a cool stuff with a cool language that may or may not be used later by the
+community if this proves to be adequatly coded ?
+* Regardless the utility vs usefulness question, in what kind of projects do I
+  want to be involved in ? Of course, it &lt;em&gt;seems&lt;/em&gt; great to take part in projects
+that protects privacy or circonvemt censorship. And of course, it &lt;em&gt;seems&lt;/em&gt; to
+suck to work for boring projects like implementing a accountability software in
+Java (I&amp;rsquo;m not doing this). Most of the time you just do project because they sound fun or you like
+the technical side (that&amp;rsquo;s the one most often used).&lt;/p&gt;
+
+&lt;p&gt;After all of this, nothing is resolved and I&amp;rsquo;ve only have more questions in my
+mind but it has opened a whole new world of perception / possibilities that I
+did not really thought about before. Every change is good, so I take it it&amp;rsquo;s one
+way of creating your own identity that to ask those questions&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Peace to all of you. Good night.&lt;/p&gt;
 </description>
     </item>
     
