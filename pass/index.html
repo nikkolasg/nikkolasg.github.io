@@ -1,14 +1,16 @@
 	<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.17" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Install Pass on different machines with gpg &middot; A blog </title>
+  
+  <title>Install Pass on different machines with gpg &middot; A blog</title>
+  
 
   
   <link rel="stylesheet" href="https://nikkolasg.github.io/css/poole.css">
@@ -24,7 +26,7 @@
   <link href="" rel="alternate" type="application/rss+xml" title="A blog" />
 </head>
 
-	<body class="">
+	<body class=" ">
 		<div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -50,7 +52,7 @@
 			  <span class="post-date">Thu, Mar 3, 2016</span>
 			      
 
-<h1 id="using-pass-gpg-on-different-machines:cf74d1242aa2a62d59c5375aba5f1401">Using Pass + gpg on different machines</h1>
+<h1 id="using-pass-gpg-on-different-machines">Using Pass + gpg on different machines</h1>
 
 <p>Piouf, as my first introduction to gpg, that was more complicated than expected.
 Pass is a password manager that uses gpg to encrypt your password and can be
@@ -58,12 +60,12 @@ intergrated with Git. So as long as you have the same gpg key on your devices,
 you can have the passwords in clear text AND being able to push those encrypted
 password on any git repo. That&rsquo;s cool !</p>
 
-<h3 id="create-key:cf74d1242aa2a62d59c5375aba5f1401">Create key</h3>
+<h3 id="create-key">Create key</h3>
 
 <p><code>gpg --gen-key</code> (it can depends on your distro)
 Choose (1) Rsa &amp; Rsa with 4096 bits (at least)</p>
 
-<h3 id="export-key-to-remote-server:cf74d1242aa2a62d59c5375aba5f1401">Export key to remote server</h3>
+<h3 id="export-key-to-remote-server">Export key to remote server</h3>
 
 <p>Notes from <a href="https://www.debuntu.org/how-to-importexport-gpg-key-pair/">https://www.debuntu.org/how-to-importexport-gpg-key-pair/</a></p>
 
@@ -72,21 +74,21 @@ Choose (1) Rsa &amp; Rsa with 4096 bits (at least)</p>
 <li>Export public key: <code>gpg --output mygpgkey_pub.gpg --armor --export &lt;key-id&gt;</code> where key-id is the
 last part when you list the key <code>*****/&lt;key-id&gt;</code></li>
 <li>Export secret key : <code>gpg --output mygpgkey_sec.gpg --armor --export-secret-key ******</code></li>
-<li>Copy keys to remote server: `scp mygpgkey_pub.gpg mygpgkey_sec.gpg user@remotehost:~/</li>
+<li>Copy keys to remote server: <code>scp mygpgkey_pub.gpg mygpgkey_sec.gpg user@remotehost:~/</code></li>
 <li>Connect to remote: <code>ssh user@remotehost</code></li>
 <li>Import the public key: <code>gpg --import ~/mygpgkey_pub.gpg</code></li>
 <li>Import the secret key: <code>gpg --allow-secret-key-import --import
 ~/mygpgkey_sec.gpg</code></li>
 </ul>
 
-<h2 id="troubles:cf74d1242aa2a62d59c5375aba5f1401">Troubles</h2>
+<h2 id="troubles">Troubles</h2>
 
 <p>I&rsquo;ve had trouble when importing the key because of pinentry. In Archlinux,
 pinentry points to <code>/usr/bin/pintentry-gtk</code> (why &hellip;?). You have to delete the
 symlink <code>/usr/bin/pinentry</code> and to point it to whatever (ncurse, or tty if you
 work on a remote server)</p>
 
-<h2 id="pass-manager:cf74d1242aa2a62d59c5375aba5f1401">Pass manager</h2>
+<h2 id="pass-manager">Pass manager</h2>
 
 <p>At this point you can use the Pass manager with the key you created:</p>
 
@@ -111,7 +113,7 @@ quit
 
 <p>Then you can try again to register the password and it should works !</p>
 
-<h2 id="different-machines:cf74d1242aa2a62d59c5375aba5f1401">Different machines</h2>
+<h2 id="different-machines">Different machines</h2>
 
 <p>Now on the remote server you have a git repo in <code>$HOME/.password_store</code>. If you
 want your passwords on another machines, make sure you import the key as before.
@@ -123,22 +125,6 @@ Then your local <em>pass</em> will simply look at this file.</p>
 
 			</div>
 
-			
-				<h2>Comments</h2>
-				<div id="disqus_thread"></div>
-<script type="text/javascript">
-     
-    var disqus_shortname = 'bcd'; 
-
-     
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
 			
 		</div>
 

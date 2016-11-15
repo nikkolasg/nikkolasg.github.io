@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A blog</title>
-    <link>https://nikkolasg.github.io/</link>
+    <link>https://nikkolasg.github.io/index.xml</link>
     <description>Recent content on A blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -17,7 +17,7 @@
       <guid>https://nikkolasg.github.io/pass/</guid>
       <description>
 
-&lt;h1 id=&#34;using-pass-gpg-on-different-machines:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Using Pass + gpg on different machines&lt;/h1&gt;
+&lt;h1 id=&#34;using-pass-gpg-on-different-machines&#34;&gt;Using Pass + gpg on different machines&lt;/h1&gt;
 
 &lt;p&gt;Piouf, as my first introduction to gpg, that was more complicated than expected.
 Pass is a password manager that uses gpg to encrypt your password and can be
@@ -25,12 +25,12 @@ intergrated with Git. So as long as you have the same gpg key on your devices,
 you can have the passwords in clear text AND being able to push those encrypted
 password on any git repo. That&amp;rsquo;s cool !&lt;/p&gt;
 
-&lt;h3 id=&#34;create-key:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Create key&lt;/h3&gt;
+&lt;h3 id=&#34;create-key&#34;&gt;Create key&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;gpg --gen-key&lt;/code&gt; (it can depends on your distro)
 Choose (1) Rsa &amp;amp; Rsa with 4096 bits (at least)&lt;/p&gt;
 
-&lt;h3 id=&#34;export-key-to-remote-server:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Export key to remote server&lt;/h3&gt;
+&lt;h3 id=&#34;export-key-to-remote-server&#34;&gt;Export key to remote server&lt;/h3&gt;
 
 &lt;p&gt;Notes from &lt;a href=&#34;https://www.debuntu.org/how-to-importexport-gpg-key-pair/&#34;&gt;https://www.debuntu.org/how-to-importexport-gpg-key-pair/&lt;/a&gt;&lt;/p&gt;
 
@@ -39,21 +39,21 @@ Choose (1) Rsa &amp;amp; Rsa with 4096 bits (at least)&lt;/p&gt;
 &lt;li&gt;Export public key: &lt;code&gt;gpg --output mygpgkey_pub.gpg --armor --export &amp;lt;key-id&amp;gt;&lt;/code&gt; where key-id is the
 last part when you list the key &lt;code&gt;*****/&amp;lt;key-id&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Export secret key : &lt;code&gt;gpg --output mygpgkey_sec.gpg --armor --export-secret-key ******&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Copy keys to remote server: `scp mygpgkey_pub.gpg mygpgkey_sec.gpg user@remotehost:~/&lt;/li&gt;
+&lt;li&gt;Copy keys to remote server: &lt;code&gt;scp mygpgkey_pub.gpg mygpgkey_sec.gpg user@remotehost:~/&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Connect to remote: &lt;code&gt;ssh user@remotehost&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Import the public key: &lt;code&gt;gpg --import ~/mygpgkey_pub.gpg&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Import the secret key: &lt;code&gt;gpg --allow-secret-key-import --import
 ~/mygpgkey_sec.gpg&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;troubles:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Troubles&lt;/h2&gt;
+&lt;h2 id=&#34;troubles&#34;&gt;Troubles&lt;/h2&gt;
 
 &lt;p&gt;I&amp;rsquo;ve had trouble when importing the key because of pinentry. In Archlinux,
 pinentry points to &lt;code&gt;/usr/bin/pintentry-gtk&lt;/code&gt; (why &amp;hellip;?). You have to delete the
 symlink &lt;code&gt;/usr/bin/pinentry&lt;/code&gt; and to point it to whatever (ncurse, or tty if you
 work on a remote server)&lt;/p&gt;
 
-&lt;h2 id=&#34;pass-manager:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Pass manager&lt;/h2&gt;
+&lt;h2 id=&#34;pass-manager&#34;&gt;Pass manager&lt;/h2&gt;
 
 &lt;p&gt;At this point you can use the Pass manager with the key you created:&lt;/p&gt;
 
@@ -78,7 +78,7 @@ quit
 
 &lt;p&gt;Then you can try again to register the password and it should works !&lt;/p&gt;
 
-&lt;h2 id=&#34;different-machines:cf74d1242aa2a62d59c5375aba5f1401&#34;&gt;Different machines&lt;/h2&gt;
+&lt;h2 id=&#34;different-machines&#34;&gt;Different machines&lt;/h2&gt;
 
 &lt;p&gt;Now on the remote server you have a git repo in &lt;code&gt;$HOME/.password_store&lt;/code&gt;. If you
 want your passwords on another machines, make sure you import the key as before.
@@ -102,9 +102,9 @@ Then your local &lt;em&gt;pass&lt;/em&gt; will simply look at this file.&lt;/p&g
 back into a secure &amp;amp; custom server that I will &lt;em&gt;actually&lt;/em&gt; use ;)
  Here&amp;rsquo;s my steps for ArchLinux:&lt;/p&gt;
 
-&lt;h1 id=&#34;installing-archlinux-on-remote-server:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Installing ArchLinux on remote server&lt;/h1&gt;
+&lt;h1 id=&#34;installing-archlinux-on-remote-server&#34;&gt;Installing ArchLinux on remote server&lt;/h1&gt;
 
-&lt;h2 id=&#34;drives:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Drives&lt;/h2&gt;
+&lt;h2 id=&#34;drives&#34;&gt;Drives&lt;/h2&gt;
 
 &lt;p&gt;First you need to setup your drives correctly. I use fdisk and you can find
 any decent tutorial on it easily.
@@ -118,7 +118,7 @@ cryptsetup open /dev/sda3 cryptroot
 mkfs -t ext4 /dev/mapper/cryptroo
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;system:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;System&lt;/h2&gt;
+&lt;h2 id=&#34;system&#34;&gt;System&lt;/h2&gt;
 
 &lt;p&gt;For installing on the drives, they need to be unmounted so you need to boot on
 &amp;ldquo;rescue&amp;rdquo; image that your hosting provider is surely providing you. Mine was
@@ -130,7 +130,7 @@ offering a Debian image.&lt;/p&gt;
 &lt;p&gt;The following notes are simply some stuff that kept me crazy during a lot of
 hours.&lt;/p&gt;
 
-&lt;h2 id=&#34;notes:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Notes&lt;/h2&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Install &lt;code&gt;haveged&lt;/code&gt; before running &lt;code&gt;pacman-key --init&lt;/code&gt;, it&amp;rsquo;ll be WAY much
@@ -189,7 +189,7 @@ useful to others.It&amp;rsquo;s actually also a nice way to remember things for 
       <guid>https://nikkolasg.github.io/tor_iff_2016/</guid>
       <description>
 
-&lt;h2 id=&#34;about-passionate-people:fac509855ae0c413020a910656184bb3&#34;&gt;About passionate people &amp;hellip;&lt;/h2&gt;
+&lt;h2 id=&#34;about-passionate-people&#34;&gt;About passionate people &amp;hellip;&lt;/h2&gt;
 
 &lt;p&gt;I&amp;rsquo;ve attented the TorDev meeting 2016 in Valencia &amp;amp; some parts of the IFF also
 taking place right after it in the same city. That was my first dive into this
