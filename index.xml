@@ -10,16 +10,12 @@
     <atom:link href="https://nikkolasg.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Github images in the wiki</title>
+      <title>Directly embedding images into a Github wiki</title>
       <link>https://nikkolasg.github.io/git_img/</link>
       <pubDate>Tue, 15 Nov 2016 11:30:00 +0100</pubDate>
       
       <guid>https://nikkolasg.github.io/git_img/</guid>
-      <description>
-
-&lt;h1 id=&#34;directly-embedding-images-into-a-github-wiki&#34;&gt;Directly embedding images into a Github wiki&lt;/h1&gt;
-
-&lt;p&gt;Although there&amp;rsquo;s a reasonable amount of posts saying that you have to upload a
+      <description>&lt;p&gt;Although there&amp;rsquo;s a reasonable amount of posts saying that you have to upload a
 image to your repository (the code), and then link with the &amp;ldquo;raw&amp;rdquo; approach, my
 colleague and I found a more elegant solution:&lt;/p&gt;
 
