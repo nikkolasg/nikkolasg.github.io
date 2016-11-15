@@ -1,0 +1,92 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.17" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>Github images in the wiki &middot; A blog</title>
+  
+
+  
+  <link rel="stylesheet" href="https://nikkolasg.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://nikkolasg.github.io/css/syntax.css">
+  <link rel="stylesheet" href="https://nikkolasg.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="A blog" />
+</head>
+
+	<body class=" ">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://nikkolasg.github.io/"><h1>A blog</h1></a>
+      <p class="lead">
+       Yet another blog on code, security &amp; ideas 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+    </ul>
+
+    <p>&copy; 2016. All rights reserved. </p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Github images in the wiki</h1>
+			  <span class="post-date">Tue, Nov 15, 2016</span>
+			      
+
+<h1 id="directly-embedding-images-into-a-github-wiki">Directly embedding images into a Github wiki</h1>
+
+<p>Although there&rsquo;s a reasonable amount of posts saying that you have to upload a
+image to your repository (the code), and then link with the &ldquo;raw&rdquo; approach, my
+colleague and I found a more elegant solution:</p>
+
+<blockquote>
+<p>Upload the image directly into the Wiki repository</p>
+</blockquote>
+
+<p>Indeed the wiki is just another Git repo ! Here is the <a href="https://help.github.com/articles/adding-and-editing-wiki-pages-locally/">github
+page</a>.</p>
+
+<p>So basically you need first clone the wiki repo:
+<code>git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.wiki.git</code></p>
+
+<p>Then you add your image:</p>
+
+<pre><code>cp ~/myimage.png YOUR_REPOSITORY.wiki/
+cd YOUR_REPOSITORY.wiki
+git add myimage.png
+git commit -m &quot;added picture for the wiki&quot;
+git push
+</code></pre>
+
+<p>Your image is now available at
+<code>https://raw.githubusercontent.com/wiki/USERNAME/REPOSITORY/myimage.png</code></p>
+
+<p>so you only need to link it in your Wiki using the regular link
+<code>[text](&quot;https://raw.githubusercontent.com/wiki/USERNAME/REPOSITORY/myimage.png&quot;)</code></p>
+
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
